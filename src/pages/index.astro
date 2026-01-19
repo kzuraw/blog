@@ -1,17 +1,13 @@
 ---
 import Link from "@/components/link.astro";
+import Nav from "@/components/nav.astro";
 import Layout from "@/layouts/layout.astro";
 ---
 
 <Layout>
   <Fragment slot="header">
+    <Nav />
     <h1>Krzysztof Żuraw</h1>
-    <nav>
-      <ul>
-        <Link href="/writing">Writing</Link>
-        <Link href="/rss.xml">RSS</Link>
-      </ul>
-    </nav>
     <p>
       <small>
         I'm a self-taught software engineer, writer passionate about building
