@@ -3,7 +3,6 @@
 :root {
   --text: #111;
   --muted: #666;
-  --link: #06c;
   --bg: #fff;
   --border: #e5e5e5;
   --code-bg: #f5f5f5;
@@ -53,11 +52,11 @@ p {
 }
 
 a {
-  color: var(--link);
-  text-decoration: none;
+  color: inherit;
+  text-decoration: underline;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
@@ -143,10 +142,10 @@ header {
 
     a {
       color: var(--muted);
+      text-decoration: none;
 
       &:hover {
-        color: var(--text);
-        text-decoration: none;
+        text-decoration: underline;
       }
     }
   }
@@ -186,13 +185,14 @@ main ul:has(time) {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    text-decoration: none;
 
-    &:hover {
+    span:first-child {
+      text-decoration: underline;
+    }
+
+    &:hover span:first-child {
       text-decoration: none;
-
-      span:first-child {
-        text-decoration: underline;
-      }
     }
   }
 
