@@ -1,7 +1,7 @@
 ---
-import BackHome from "@/components/back-home.astro";
 import Link from "@/components/link.astro";
 import Meta from "@/components/meta.astro";
+import Nav from "@/components/nav.astro";
 import { getWritingsByYear } from "@/helpers/get-writings-by-year";
 import Layout from "@/layouts/layout.astro";
 
@@ -11,7 +11,7 @@ const writingsByYear = await getWritingsByYear();
 <Layout>
   <Meta title="Writing" slot="meta" />
   <Fragment slot="header">
-    <BackHome />
+    <Nav />
     <h1>Writing Archives</h1>
     <p><small>All articles organized by date.</small></p>
   </Fragment>

@@ -1,6 +1,6 @@
 ---
-import BackHome from "@/components/back-home.astro";
 import Meta from "@/components/meta.astro";
+import Nav from "@/components/nav.astro";
 import Layout from "@/layouts/layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
@@ -26,7 +26,7 @@ const { Content } = await post.render();
     slot="meta"
   />
   <Fragment slot="header">
-    <BackHome />
+    <Nav />
     <h1>{post.data.title}</h1>
     <p>
       <small>
