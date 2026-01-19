@@ -1,9 +1,6 @@
 ---
 import Link from "@/components/link.astro";
-import { getLatestWritings } from "@/helpers/get-latest-writing";
 import Layout from "@/layouts/layout.astro";
-
-const latestWriting = await getLatestWritings();
 ---
 
 <Layout>
@@ -12,31 +9,17 @@ const latestWriting = await getLatestWritings();
     <nav>
       <ul>
         <Link href="/writing">Writing</Link>
-        <Link href="/about">About</Link>
         <Link href="/rss.xml">RSS</Link>
       </ul>
     </nav>
     <p>
       <small>
-        I'm a fullstack developer. I work at{" "}
-        <Link href="https://saleor.io/">Saleor</Link> where I build an open-source
-        e-commerce platform.
+        I'm a self-taught software engineer, writer passionate about building
+        products that solve real problems. With over 9 years of experience in
+        web development, I specialize in creating performant and accessible
+        applications using modern technologies.
       </small>
     </p>
-  </Fragment>
-  <Fragment slot="content">
-    <section>
-      <h2>Latest writing</h2>
-      <ul>
-        {
-          latestWriting.map((post) => (
-            <li>
-              <Link href={`/writing/${post.slug}`}>{post.data.title}</Link>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
   </Fragment>
   <Fragment slot="footer">
     <span>&copy; Krzysztof Żuraw</span>
