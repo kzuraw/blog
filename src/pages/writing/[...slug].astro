@@ -1,6 +1,6 @@
 ---
-import BackHome from "@/components/back-home.astro";
 import Meta from "@/components/meta.astro";
+import Navbar from "@/components/navbar.astro";
 import Layout from "@/layouts/layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
@@ -26,7 +26,9 @@ const { Content } = await post.render();
     slot="meta"
   />
   <Fragment slot="header">
-    <BackHome />
+    <div class="mb-8">
+      <Navbar />
+    </div>
 
     <div class="prose">
       <h1>
@@ -59,9 +61,7 @@ const { Content } = await post.render();
     </div>
   </Fragment>
   <Fragment slot="content">
-    <article
-      class="prose prose-a:text-blue-600 prose-a:hover:text-blue-700 prose-a:no-underline"
-    >
+    <article class="prose prose-a:underline prose-a:hover:opacity-70">
       <Content />
     </article>
   </Fragment>
