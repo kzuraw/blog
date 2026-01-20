@@ -20,15 +20,24 @@ const latestWriting = await getLatestWritings();
   <Fragment slot="content">
     <section class="mb-12">
       <h2 class="text-lg font-medium text-gray-900 mb-6">Latest writing</h2>
-      <ul class="space-y-3">
+      <ul class="space-y-5">
         {
           latestWriting.map((post) => (
-            <li>
-              <Link
-                href={`/writing/${post.slug}`}
-                class="underline hover:opacity-70 transition-opacity"
-              >
-                {post.data.title}
+            <li class="group">
+              <Link href={`/writing/${post.slug}`} class="block">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                  <span class="group-hover:opacity-70 transition-opacity">
+                    {post.data.title}
+                  </span>
+                  {post.data.pubDate && (
+                    <time class="text-sm text-gray-500 sm:shrink-0 sm:ml-4">
+                      {new Date(post.data.pubDate).toLocaleDateString(
+                        "en-US",
+                        { month: "short", day: "numeric", year: "numeric" },
+                      )}
+                    </time>
+                  )}
+                </div>
               </Link>
             </li>
           ))
