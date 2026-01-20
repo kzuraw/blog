@@ -9,14 +9,7 @@ const latestWriting = await getLatestWritings();
 
 <Layout>
   <Fragment slot="header">
-    <div
-      class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6"
-    >
-      <h1 class="text-2xl font-semibold text-gray-900 mb-2 sm:mb-0">
-        Krzysztof Żuraw
-      </h1>
-      <Navbar />
-    </div>
+    <Navbar />
     <p class="text-gray-700 leading-relaxed">
       I'm a fullstack developer. I work at{" "}
       <Link href="https://saleor.io/" class="underline hover:opacity-70"
