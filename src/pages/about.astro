@@ -1,6 +1,6 @@
 ---
-import BackHome from "@/components/back-home.astro";
 import Meta from "@/components/meta.astro";
+import Navbar from "@/components/navbar.astro";
 import Layout from "@/layouts/layout.astro";
 import { Image } from "astro:assets";
 
@@ -11,15 +11,15 @@ import avatarImage from "@/assets/avatar.jpg";
   <Meta title="About" slot="meta" />
 
   <Fragment slot="header">
-    <BackHome />
+    <div class="mb-8">
+      <Navbar />
+    </div>
 
     <h1 class="text-2xl font-semibold text-gray-900 mb-4">About me</h1>
   </Fragment>
 
   <Fragment slot="content">
-    <article
-      class="prose prose-a:text-blue-600 prose-a:hover:text-blue-700 prose-a:no-underline"
-    >
+    <article class="prose prose-a:underline prose-a:hover:opacity-70">
       <Image src={avatarImage} alt="My face" />
       <p>
         I'm a self-taught software engineer, writer passionate about building

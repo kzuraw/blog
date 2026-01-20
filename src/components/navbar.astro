@@ -1,0 +1,24 @@
+---
+import Link from "./link.astro";
+---
+
+<nav>
+  <ul class="flex space-x-6">
+    <li>
+      <Link href="/" class="hover:opacity-70 transition-opacity">Home</Link>
+    </li>
+    <li>
+      <Link href="/writing" class="hover:opacity-70 transition-opacity"
+        >Writing</Link
+      >
+    </li>
+    <li>
+      <Link href="/about" class="hover:opacity-70 transition-opacity">About</Link
+      >
+    </li>
+    <li>
+      <Link href="/rss.xml" class="hover:opacity-70 transition-opacity">RSS</Link
+      >
+    </li>
+  </ul>
+</nav>
