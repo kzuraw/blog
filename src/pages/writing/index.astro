@@ -35,10 +35,7 @@ const writingsByYear = await getWritingsByYear();
                       </h3>
                       {post.data.pubDate && (
                         <time class="text-sm text-gray-500 sm:shrink-0 sm:ml-4">
-                          {new Date(post.data.pubDate).toLocaleDateString(
-                            "en-US",
-                            { month: "short", day: "numeric" },
-                          )}
+                          {new Date(post.data.pubDate).toISOString().slice(0, 10)}
                         </time>
                       )}
                     </div>
