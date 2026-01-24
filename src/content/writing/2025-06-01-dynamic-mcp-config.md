@@ -3,9 +3,6 @@ title: Dynamic Configuration for MCP Servers Using Environment Variables
 description: Learn how to dynamically configure your MCP (Model Context Protocol) GraphQL server with environment variables for flexible and secure deployment.
 pubDate: 2025-06-01T12:18:45Z
 slug: 2025/dynamic-configuration-for-mcp-servers-using-environment-variables
-source:
-  url: https://dev.to/saleor/dynamic-configuration-for-mcp-servers-using-environment-variables-2a0o
-  title: "Dynamic Configuration for MCP Servers Using Environment Variables"
 ---
 
 This blog post explains how to configure Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) server that can be dynamically controlled through environment variables.

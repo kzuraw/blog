@@ -1,7 +1,7 @@
 import { type Config } from "prettier";
 
 const config: Config = {
-  plugins: ["prettier-plugin-astro"],
+  plugins: ["prettier-plugin-tailwindcss", "prettier-plugin-astro"],
   overrides: [
     {
       files: "*.astro",

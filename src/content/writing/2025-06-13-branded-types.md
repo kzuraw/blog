@@ -3,9 +3,6 @@ title: "Branded Types in TypeScript: techniques"
 description: Guide to branded types in TypeScript, covering techniques to enhance type safety and prevent subtle bugs.
 pubDate: 2025-06-13T13:25:37Z
 slug: 2025/branded-types-typescript-techniques
-source:
-  url: https://dev.to/saleor/branded-types-in-typescript-techniques-340f
-  title: "Branded Types in TypeScript: techniques"
 ---
 
 In this post, I’ll walk you through several ways to implement branded types in TypeScript. If you’re new to the concept, check out [this intro to branded types](https://egghead.io/blog/using-branded-types-in-typescript) before diving in.

@@ -1,9 +1,9 @@
-import { getLatestWritings } from "@/helpers/get-latest-writing";
+import { getLatestWritings } from "@/helpers/writings";
 import rss from "@astrojs/rss";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async (context) => {
-  const latestWriting = await getLatestWritings();
+  const latestWriting = await getLatestWritings(3);
 
   return rss({
     title: "kzuraw.com",

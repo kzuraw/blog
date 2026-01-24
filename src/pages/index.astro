@@ -1,63 +1,36 @@
 ---
-import Link from "@/components/Link.astro";
-import Navbar from "@/components/Navbar.astro";
 import PostDate from "@/components/PostDate.astro";
-import { getLatestWritings } from "@/helpers/get-latest-writing";
+import { getLatestWritings } from "@/helpers/writings";
 import Layout from "@/layouts/Layout.astro";
 
-const latestWriting = await getLatestWritings();
+const latestWriting = await getLatestWritings(3);
 ---
 
 <Layout>
-  <Fragment slot="header">
-    <Navbar />
-    <p class="text-gray-700 leading-relaxed">
-      I'm a fullstack developer. I work at{" "}
-      <Link href="https://saleor.io/" class="underline hover:opacity-70"
-        >Saleor</Link
+  <Fragment slot="content">
+    <p class="text-gray-700 leading-relaxed mb-3">
+      I'm a fullstack developer. I work at
+      <a href="https://saleor.io/" class="underline hover:opacity-70">Saleor</a
       >{" "}where I build an open-source e-commerce platform.
     </p>
-  </Fragment>
-  <Fragment slot="content">
     <section class="mb-12">
       <h2 class="text-lg font-medium text-gray-900 mb-6">Latest writing</h2>
       <ul class="space-y-5">
         {
           latestWriting.map((post) => (
             <li class="group">
-              <Link href={`/writing/${post.slug}`} class="block">
+              <a href={`/writing/${post.slug}`} class="block">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
                   <span class="group-hover:opacity-70 transition-opacity">
                     {post.data.title}
                   </span>
-                  {post.data.pubDate && (
-                    <PostDate
-                      date={post.data.pubDate}
-                      class="text-sm text-gray-500 sm:shrink-0 sm:ml-4"
-                    />
-                  )}
+                  {post.data.pubDate && <PostDate date={post.data.pubDate} />}
                 </div>
-              </Link>
+              </a>
             </li>
           ))
         }
       </ul>
     </section>
-  </Fragment>
-  <Fragment slot="footer">
-    <div class="flex space-x-6 justify-between text-sm text-gray-500">
-      &copy; Krzysztof Żuraw
-      <ul class="flex gap-2">
-        <li>
-          <Link href="https://github.com/kzuraw">GitHub</Link>
-        </li>
-        <li>
-          <Link href="https://bsky.app/profile/kzuraw.com">Bluesky</Link>
-        </li>
-        <li>
-          <Link href="https://www.linkedin.com/in/kzuraw">LinkedIn</Link>
-        </li>
-      </ul>
-    </div>
   </Fragment>
 </Layout>

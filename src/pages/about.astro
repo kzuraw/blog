@@ -1,6 +1,5 @@
 ---
 import Meta from "@/components/Meta.astro";
-import Navbar from "@/components/Navbar.astro";
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 
@@ -9,14 +8,9 @@ import avatarImage from "@/assets/avatar.jpg";
 
 <Layout>
   <Meta title="About" slot="meta" />
-
-  <Fragment slot="header">
-    <Navbar />
-    <h1 class="text-2xl font-semibold text-gray-900 mb-4">About me</h1>
-  </Fragment>
-
   <Fragment slot="content">
     <article class="prose prose-a:underline prose-a:hover:opacity-70">
+      <h1 class="text-2xl font-semibold text-gray-900 mb-4">About me</h1>
       <Image src={avatarImage} alt="My face" />
       <p>
         I'm a self-taught software engineer, writer passionate about building

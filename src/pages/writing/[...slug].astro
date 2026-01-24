@@ -1,6 +1,5 @@
 ---
 import Meta from "@/components/Meta.astro";
-import Navbar from "@/components/Navbar.astro";
 import PostDate from "@/components/PostDate.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -23,35 +22,16 @@ const { Content } = await post.render();
   <Meta
     title={post.data.title}
     description={post.data.description}
-    canonicalUrl={post.data.source?.url}
     slot="meta"
   />
-  <Fragment slot="header">
-    <Navbar />
-    <div class="prose">
+  <Fragment slot="content">
+    <article class="prose prose-a:underline prose-a:hover:opacity-70">
       <h1>
         {post.data.title}
       </h1>
       <div class="flex gap-x-2">
-        {post.data.pubDate && <PostDate date={post.data.pubDate} format="long" />}
-        {
-          post.data.source?.url && (
-            <>
-              <span>•</span>
-              <span>
-                Originally published at{" "}
-                <a href={post.data.source.url}>
-                  {new URL(post.data.source.url).host}
-                </a>
-              </span>
-            </>
-          )
-        }
+        {post.data.pubDate && <PostDate date={post.data.pubDate} />}
       </div>
-    </div>
-  </Fragment>
-  <Fragment slot="content">
-    <article class="prose prose-a:underline prose-a:hover:opacity-70">
       <Content />
     </article>
   </Fragment>

@@ -6,7 +6,6 @@
     "editor.lineNumbers": "off",
     "editor.wordWrap": "wordWrapColumn"
   },
-  "cSpell.diagnosticLevel": "Information",
   "editor.quickSuggestions": {
     "strings": true
   },
