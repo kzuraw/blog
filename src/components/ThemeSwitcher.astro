@@ -29,7 +29,8 @@
   function applyTheme() {
     const isDark =
       localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
+      (localStorage.theme !== "light" &&
+        !("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches);
     document.documentElement.dataset.theme = isDark ? "dark" : "light";
   }
@@ -48,8 +49,12 @@
     applyTheme();
   });
 
-  // Listen for system theme changes
+  // Listen for system theme changes (only applies when using "system" mode)
   window
     .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", applyTheme);
+    .addEventListener("change", () => {
+      if (!("theme" in localStorage)) {
+        applyTheme();
+      }
+    });
 </script>

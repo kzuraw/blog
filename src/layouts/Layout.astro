@@ -14,7 +14,8 @@ import "@/styles/global.css";
     <script is:inline>
       const isDark =
         localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
+        (localStorage.theme !== "light" &&
+          !("theme" in localStorage) &&
           window.matchMedia("(prefers-color-scheme: dark)").matches);
       document.documentElement.dataset.theme = isDark ? "dark" : "light";
     </script>
