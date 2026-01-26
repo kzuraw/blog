@@ -12,12 +12,11 @@ import "@/styles/global.css";
       <Meta title="Krzysztof Żuraw" />
     </slot>
     <script is:inline>
-      document.documentElement.classList.toggle(
-        "dark",
+      const isDark =
         localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches),
-      );
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.dataset.theme = isDark ? "dark" : "light";
     </script>
   </head>
   <body
@@ -45,15 +44,18 @@ import "@/styles/global.css";
                 >RSS</a
               >
             </li>
-            <li>
-              <ThemeSwitcher />
-            </li>
           </ul>
         </nav>
       </header>
       <main>
         <slot name="content" />
       </main>
+      <footer
+        class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between text-sm text-gray-600 dark:text-gray-400"
+      >
+        <span>© Krzysztof Żuraw</span>
+        <ThemeSwitcher />
+      </footer>
     </div>
   </body>
 </html>
