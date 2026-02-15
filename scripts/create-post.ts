@@ -1,5 +1,7 @@
-import { writeFileSync } from "node:fs";
+import { TZDate } from "@date-fns/tz";
+import { format } from "date-fns";
 import { execSync } from "node:child_process";
+import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { createInterface } from "node:readline/promises";
 
@@ -19,17 +21,16 @@ const slug = title
 
 const projectDir = resolve(import.meta.dirname, "..");
 
-const now = new Date();
-const date = now.toISOString().split("T")[0];
-const pubDate = now.toISOString();
-const year = now.getFullYear();
+const now = new TZDate(new Date(), "Europe/Warsaw");
+const date = format(now, "yyyy-MM-dd");
+const year = format(now, "yyyy");
 
 const filePath = resolve(projectDir, `src/content/blog/${date}-${slug}.md`);
 
 const content = `---
 title: ${title}
 description:
-pubDate: ${pubDate}
+pubDate: ${format(now, "yyyy-MM-dd'T'HH:mm:ssXXX")}
 slug: ${year}/${slug}
 ---
 `;

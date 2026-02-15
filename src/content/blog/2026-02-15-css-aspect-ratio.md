@@ -1,7 +1,7 @@
 ---
 title: CSS aspect ratio property
 description: How to use CSS aspect-ratio property to prevent layout shift
-pubDate: 2026-02-15T14:11:22Z
+pubDate: 2026-02-15T14:11:22+01:00
 slug: 2026/css-aspect-ratio
 ---
 
