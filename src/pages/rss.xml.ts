@@ -10,8 +10,8 @@ export const GET: APIRoute = async (context) => {
   }
 
   return rss({
-    title: "kzuraw.com",
-    description: "Website about TypeScript, React and all things fullstack.",
+    title: "Krzysztof Żuraw",
+    description: "Blog about TypeScript, Python & React.",
     site: context.site,
     trailingSlash: false,
     items: mostRecentPosts.map((post) => ({
