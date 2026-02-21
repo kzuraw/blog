@@ -19,8 +19,14 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
-      - name: Update dependencies
+      - name: Update pnpm dependencies
         run: pnpm update --latest
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Update GitHub Actions dependencies
+        run: uvx gha-update
 
       - name: Commit changes
         run: |
