@@ -33,7 +33,7 @@ jobs:
 
       - name: Create pull request
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           existing_pr=$(gh pr list --head dependency-update --base main --state open --json number --jq '.[0].number')
           if [ -z "$existing_pr" ]; then
