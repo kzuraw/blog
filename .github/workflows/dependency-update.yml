@@ -2,7 +2,7 @@ name: Monthly Dependency Update
 
 on:
   schedule:
-    - cron: "0 9 * * 1" # Every Monday at 9:00 UTC
+    - cron: "0 9 1 * *" # First day of each month at 9:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -34,4 +34,8 @@ jobs:
       - name: Create pull request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr create --fill --label dependencies --base main
+        run: |
+          existing_pr=$(gh pr list --head dependency-update --base main --state open --json number --jq '.[0].number')
+          if [ -z "$existing_pr" ]; then
+            gh pr create --fill --label dependencies --base main
+          fi
