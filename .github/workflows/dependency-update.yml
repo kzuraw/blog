@@ -1,4 +1,4 @@
-name: Monthly Dependency Update
+name: Monthly Dependencies Update
 
 on:
   schedule:
@@ -32,16 +32,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git switch --force-create dependency-update
+          git switch --force-create dependencies-update
           git add .
           git diff --cached --quiet || git commit --message "Update dependencies to latest"
-          git push --force origin dependency-update
+          git push --force origin dependencies-update
 
       - name: Create pull request
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          existing_pr=$(gh pr list --head dependency-update --base main --state open --json number --jq '.[0].number')
+          existing_pr=$(gh pr list --head dependencies-update --base main --state open --json number --jq '.[0].number')
           if [ -z "$existing_pr" ]; then
             gh pr create --fill --label dependencies --base main
           fi
