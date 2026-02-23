@@ -24,6 +24,8 @@ jobs:
 
       - name: Setup uv
         uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
+        with:
+          enable-cache: false
 
       - name: Update GitHub Actions dependencies
         run: uvx gha-update
