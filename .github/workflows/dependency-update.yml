@@ -38,6 +38,8 @@ jobs:
           git push --force origin dependencies-update
 
       - name: Create pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           existing_pr=$(gh pr list --head dependencies-update --base main --state open --json number --jq '.[0].number')
           if [ -z "$existing_pr" ]; then
