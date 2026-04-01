@@ -3,12 +3,12 @@ import Article from "@/components/Article.astro";
 import Meta from "@/components/Meta.astro";
 import PostDate from "@/components/PostDate.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { id: post.id },
     props: post,
   }));
 }
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <Layout>

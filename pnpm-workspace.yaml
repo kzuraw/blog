@@ -1,6 +1,6 @@
-allowedBuilds:
-  - esbuild
-  - sharp
+allowBuilds:
+  esbuild: true
+  sharp: true
 blockExoticSubdeps: true
 minimumReleaseAge: 10080
 trustPolicy: no-downgrade
