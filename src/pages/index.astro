@@ -1,6 +1,6 @@
 ---
 import Article from "@/components/Article.astro";
-import PostDate from "@/components/PostDate.astro";
+import PostList from "@/components/PostList.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getBlogPosts } from "@/lib/collections";
 
@@ -18,26 +18,9 @@ const mostRecentPosts = await getBlogPosts(3);
         >. When I'm not coding, you'll find me brewing coffee with a V60.
       </p>
     </Article>
-    <section class="mt-12">
-      <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
-        Most recent 3 posts
-      </h2>
-      <ul class="space-y-5">
-        {
-          mostRecentPosts.map((post) => (
-            <li class="group">
-              <a href={post.urlPath} class="block">
-                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
-                  <span class="group-hover:opacity-70 transition-opacity">
-                    {post.data.title}
-                  </span>
-                  {post.data.pubDate && <PostDate date={post.data.pubDate} />}
-                </div>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+    <section class="flow">
+      <h2>Most recent 3 posts</h2>
+      <PostList posts={mostRecentPosts} />
     </section>
   </Fragment>
 </Layout>

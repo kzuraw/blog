@@ -5,43 +5,31 @@ import "@/styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en" style="color-scheme: light dark;">
+<html lang="en">
   <head>
     <slot name="meta">
       <Meta title="Krzysztof Żuraw" />
     </slot>
   </head>
-  <body
-    class="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100"
-  >
-    <div class="max-w-2xl mx-auto px-6 py-16">
-      <header class="mb-12">
-        <nav
-          class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6"
-        >
-          <p class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Krzysztof Żuraw
-          </p>
-          <ul class="flex space-x-6">
-            <li>
-              <a href="/" class="hover:opacity-70 transition-opacity">Home</a>
-            </li>
-            <li>
-              <a href="/blog" class="hover:opacity-70 transition-opacity"
-                >Blog</a
-              >
-            </li>
-            <li>
-              <a href="/rss.xml" class="hover:opacity-70 transition-opacity"
-                >RSS</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main>
-        <slot name="content" />
-      </main>
-    </div>
+  <body>
+    <header>
+      <nav>
+        <p>Krzysztof Żuraw</p>
+        <ul role="list">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="flow">
+      <slot name="content" />
+    </main>
   </body>
 </html>

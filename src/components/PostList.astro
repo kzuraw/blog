@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import PostDate from "@/components/PostDate.astro";
+
+type Post = CollectionEntry<"blog"> & {
+  urlPath: string;
+};
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="flow" role="list">
+  {
+    posts.map((post) => (
+      <li>
+        <h3>
+          <a href={post.urlPath}>{post.data.title}</a>
+        </h3>
+        {post.data.pubDate && <PostDate date={post.data.pubDate} />}
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    --flow-space: 1.25rem;
+  }
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0 1rem;
+  }
+
+  a {
+    text-decoration-line: none;
+  }
+
+  a:hover {
+    text-decoration-line: underline;
+  }
+</style>

@@ -1,2 +1,199 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light dark;
+  --color-text: light-dark(
+    oklch(21% 0.034 264.665),
+    oklch(96.7% 0.003 264.542)
+  );
+  --color-muted: light-dark(
+    oklch(55.1% 0.027 264.364),
+    oklch(70.7% 0.022 261.325)
+  );
+  --measure: 70ch;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  min-block-size: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns:
+    minmax(1.5rem, 1fr)
+    minmax(0, var(--measure))
+    minmax(1.5rem, 1fr);
+  grid-template-rows: auto 1fr;
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  padding-block-start: 4rem;
+  margin-block-end: 3rem;
+  grid-column: 2;
+}
+
+main {
+  padding-block-end: 4rem;
+  --flow-space: 3rem;
+  grid-column: 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+a {
+  color: currentColor;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.15em;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  display: block;
+  max-inline-size: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea:not([rows]) {
+  min-block-size: 10em;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+
+nav p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+}
+
+nav a {
+  text-decoration-line: none;
+}
+
+nav a:hover {
+  text-decoration-line: underline;
+}
+
+time {
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+article {
+  --flow-space: 1.25em;
+}
+
+article :is(h2 + *, h3 + *, h4 + *) {
+  --flow-space: 0.75em;
+}
+
+article a {
+  font-weight: 400;
+  text-decoration-line: underline;
+}
+
+article :not(pre) > code::before,
+article :not(pre) > code::after {
+  content: "`";
+}
+
+article :where(ul, ol) {
+  padding-inline-start: 1.5em;
+}
+
+article :where(pre, table) {
+  overflow-x: auto;
+}
+
+article pre {
+  padding: 1rem;
+}
