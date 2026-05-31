@@ -10,7 +10,6 @@
     oklch(21% 0.034 264.665),
     oklch(96.7% 0.003 264.542)
   );
-
   --measure: 70ch;
 }
 
@@ -106,14 +105,14 @@ textarea:not([rows]) {
   min-block-size: 10em;
 }
 
+time {
+  font-variant-numeric: tabular-nums;
+}
+
 :target {
   scroll-margin-block: 5ex;
 }
 
 .flow > * + * {
   margin-block-start: var(--flow-space, 1em);
-}
-
-time {
-  font-variant-numeric: tabular-nums;
 }
