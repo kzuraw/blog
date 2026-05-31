@@ -33,3 +33,50 @@ import "@/styles/global.css";
     </main>
   </body>
 </html>
+
+<style>
+  header,
+  main {
+    max-inline-size: var(--measure);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  header {
+    padding-block-start: 4rem;
+    margin-block-end: 3rem;
+  }
+
+  main {
+    padding-block-end: 4rem;
+    --flow-space: 3rem;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem 1.5rem;
+  }
+
+  nav p {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin: 0;
+  }
+
+  nav a {
+    text-decoration-line: none;
+  }
+
+  nav a:hover {
+    text-decoration-line: underline;
+  }
+</style>

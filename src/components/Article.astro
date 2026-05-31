@@ -1,3 +1,35 @@
 <article class="flow">
   <slot />
 </article>
+
+<style>
+  article {
+    --flow-space: 1.25em;
+  }
+
+  article :global(:is(h2 + *, h3 + *, h4 + *)) {
+    --flow-space: 0.75em;
+  }
+
+  article :global(a) {
+    font-weight: 400;
+    text-decoration-line: underline;
+  }
+
+  article :global(:not(pre) > code::before),
+  article :global(:not(pre) > code::after) {
+    content: "`";
+  }
+
+  article :global(:where(ul, ol)) {
+    padding-inline-start: 1.5em;
+  }
+
+  article :global(:where(pre, table)) {
+    overflow-x: auto;
+  }
+
+  article :global(pre) {
+    padding: 1rem;
+  }
+</style>
