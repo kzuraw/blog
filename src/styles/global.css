@@ -1,118 +1,119 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@import "tailwindcss";
+@import "@fontsource/nebula-sans/latin-400.css";
+@import "@fontsource/nebula-sans/latin-400-italic.css";
+@import "@fontsource/nebula-sans/latin-700.css";
+@import "@fontsource/nebula-sans/latin-700-italic.css";
+@import "@fontsource/source-code-pro/latin-400.css";
+@import "@fontsource/source-code-pro/latin-600.css";
+
+@theme {
+  --font-sans: "Nebula Sans", Arial, sans-serif;
+  --font-mono: "Source Code Pro", monospace;
+  --color-ink: #111111;
 }
 
-:root {
-  color-scheme: light dark;
-  --color-text: light-dark(
-    oklch(21% 0.034 264.665),
-    oklch(96.7% 0.003 264.542)
-  );
-  --measure: 70ch;
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  body {
+    @apply m-0 bg-white font-sans text-lg leading-relaxed text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold leading-tight;
+    text-wrap: balance;
+  }
+  h1 {
+    @apply text-4xl sm:text-5xl;
+  }
+  h2 {
+    @apply text-2xl sm:text-3xl;
+  }
+  h3 {
+    @apply text-xl sm:text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+  :focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+  }
+  ::selection {
+    @apply bg-ink text-white;
+  }
+  code,
+  pre,
+  kbd,
+  samp {
+    @apply font-mono;
+  }
+  img {
+    @apply h-auto max-w-full;
+  }
+  :target {
+    scroll-margin-top: 2rem;
+  }
 }
 
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin-block: 0;
-}
-
-ul[role="list"],
-ol[role="list"] {
-  padding: 0;
-  list-style: none;
-}
-
-body {
-  min-block-size: 100vh;
-  margin: 0;
-  color: var(--color-text);
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-button,
-input,
-label {
-  line-height: 1.1;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
-}
-
-h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-h3 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-a {
-  color: currentColor;
-  text-decoration-thickness: from-font;
-  text-underline-offset: 0.15em;
-}
-
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-img,
-picture {
-  display: block;
-  max-inline-size: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-textarea:not([rows]) {
-  min-block-size: 10em;
-}
-
-time {
-  font-variant-numeric: tabular-nums;
-}
-
-:target {
-  scroll-margin-block: 5ex;
-}
-
-.flow > * + * {
-  margin-block-start: var(--flow-space, 1em);
+@layer components {
+  .flow > * + * {
+    margin-block-start: var(--flow-space, 1.25em);
+  }
+  .prose {
+    overflow-wrap: anywhere;
+  }
+  .prose :is(h2, h3, h4) {
+    margin-block-start: 2em;
+  }
+  .prose :is(h2, h3, h4) + * {
+    margin-block-start: 0.75em;
+  }
+  .prose a {
+    @apply underline;
+  }
+  .prose ul {
+    @apply list-disc pl-6;
+  }
+  .prose ol {
+    @apply list-decimal pl-6;
+  }
+  .prose li + li {
+    @apply mt-2;
+  }
+  .prose li > :is(ul, ol) {
+    @apply mt-2;
+  }
+  .prose :not(pre) > code {
+    @apply border border-neutral-300 bg-neutral-50 px-1 py-0.5 text-[0.85em];
+  }
+  .prose pre {
+    @apply overflow-x-auto border border-ink p-4 text-sm leading-7 sm:p-6;
+  }
+  .prose blockquote {
+    @apply border-l-4 border-ink pl-5;
+  }
+  .prose table {
+    @apply block max-w-full overflow-x-auto border-collapse text-base;
+  }
+  .prose :is(th, td) {
+    @apply border border-ink px-4 py-3 text-left;
+  }
+  .prose th {
+    @apply bg-neutral-100 font-bold;
+  }
+  .prose hr {
+    @apply my-10 border-ink;
+  }
 }
