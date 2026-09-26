@@ -1,50 +1,33 @@
 ---
 import type { CollectionEntry } from "astro:content";
-
 import PostDate from "@/components/PostDate.astro";
 
-type Post = CollectionEntry<"blog"> & {
-  urlPath: string;
-};
-
+type Post = CollectionEntry<"blog"> & { urlPath: string };
 interface Props {
   posts: Post[];
 }
-
 const { posts } = Astro.props;
 ---
 
-<ul class="flow" role="list">
+<ul role="list" class="border border-ink">
   {
     posts.map((post) => (
-      <li>
-        <h3>
-          <a href={post.urlPath}>{post.data.title}</a>
-        </h3>
-        {post.data.pubDate && <PostDate date={post.data.pubDate} />}
+      <li class="border-b border-ink last:border-b-0">
+        <a
+          href={post.urlPath}
+          class="group flex items-center justify-between gap-5 px-5 py-6 no-underline hover:bg-neutral-100 focus-visible:relative focus-visible:z-10 focus-visible:outline-offset-0 sm:px-6"
+        >
+          <div class="min-w-0">
+            {post.data.pubDate && <PostDate date={post.data.pubDate} />}
+            <span class="mt-2 block text-xl leading-snug wrap-break-word group-hover:underline sm:text-2xl">
+              {post.data.title}
+            </span>
+          </div>
+          <span aria-hidden="true" class="shrink-0 text-3xl font-normal">
+            ↗
+          </span>
+        </a>
       </li>
     ))
   }
 </ul>
-
-<style>
-  ul {
-    --flow-space: 1.25rem;
-  }
-
-  li {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0 1rem;
-  }
-
-  a {
-    text-decoration-line: none;
-  }
-
-  a:hover {
-    text-decoration-line: underline;
-  }
-</style>

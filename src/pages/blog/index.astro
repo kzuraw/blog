@@ -10,8 +10,13 @@ const posts = await getBlogPosts();
 <Layout>
   <Meta title="Blog" slot="meta" />
   <Fragment slot="content">
-    <div class="flow">
-      <h1>All posts</h1>
+    <div>
+      <div class="mb-8 border-b-2 border-ink pb-6">
+        <p class="mb-3 font-mono text-xs uppercase tracking-widest">
+          The archive · {posts.length} posts
+        </p>
+        <h1>All posts</h1>
+      </div>
       <PostList posts={posts} />
     </div>
   </Fragment>
