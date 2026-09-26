@@ -4,6 +4,12 @@ const config: Config = {
   plugins: ["prettier-plugin-astro"],
   overrides: [
     {
+      files: "renovate.jsonc",
+      options: {
+        trailingComma: "none",
+      },
+    },
+    {
       files: "*.astro",
       options: {
         parser: "astro",
