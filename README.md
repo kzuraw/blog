@@ -28,6 +28,18 @@ Generate an empty post with required frontmatter:
 pnpm create-post
 ```
 
+## Dependency updates
+
+[Renovate](https://github.com/apps/renovate) is configured in `renovate.json` to
+open dependency update pull requests on Mondays between 06:00 and 10:00
+(Europe/Warsaw). It tracks npm dependencies, the pnpm version in `package.json`,
+and Node.js in `.node-version`, and refreshes `pnpm-lock.yaml` weekly.
+All updates, including major versions, pnpm, Node.js, and lockfile maintenance,
+are grouped into one pull request.
+Updates wait seven days after release, matching the release-age policy in
+`pnpm-workspace.yaml`. Pull requests require manual review and merging.
+`pnpm build`.
+
 ## Credit
 
 This blog is generated using [Astro Build](https://astro.build/).
