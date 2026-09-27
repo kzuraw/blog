@@ -9,6 +9,7 @@
     "build": "astro check && astro build",
     "create-post": "node scripts/create-post.ts",
     "dev": "astro dev",
+    "diagrams": "node scripts/render-diagrams.ts",
     "lint": "astro check",
     "format": "prettier . --write --ignore-unknown",
     "preview": "astro preview",
