@@ -1,0 +1,40 @@
+# Daily refresh and calendar subscription requests run independently.
+vars: {
+  d2-config: {
+    # Neutral Grey, with the blog's ink and white background.
+    theme-id: 1
+    theme-overrides: {
+      N1: "#111111"
+      N7: "#FFFFFF"
+    }
+  }
+}
+
+direction: down
+
+worker: Cloudflare Worker {
+  label.near: top-left
+  refresh: Daily refresh {
+    label.near: top-left
+    schedule: "Daily scheduled trigger"
+    fetch: "1. Fetch provider data\nAPI or RSS"
+    filter: "2. Parse and filter\nKeep only my location"
+    generate: "3. Generate calendar\nICS file"
+
+    schedule -> fetch
+    fetch -> filter
+    filter -> generate
+  }
+
+  serve: "5. Serve cached calendar"
+}
+
+cache: Cached calendar (ICS) {
+  shape: cylinder
+}
+
+app: Calendar app
+
+worker.refresh.generate -> cache: "4. Save to cache"
+cache -> worker.serve: Read cached ICS
+worker.serve <-> app: "Request calendar URL\nReturn cached ICS"
