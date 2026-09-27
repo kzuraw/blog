@@ -17,13 +17,13 @@
     color-scheme: light;
   }
   body {
-    @apply m-0 bg-white font-sans text-lg leading-relaxed text-ink antialiased;
+    @apply text-ink m-0 bg-white font-sans text-lg leading-relaxed antialiased;
   }
   h1,
   h2,
   h3,
   h4 {
-    @apply font-bold leading-tight;
+    @apply leading-tight font-bold;
     text-wrap: balance;
   }
   h1 {
@@ -99,21 +99,21 @@
     @apply border border-neutral-300 bg-neutral-50 px-1 py-0.5 text-[0.85em];
   }
   .prose pre {
-    @apply overflow-x-auto border border-ink p-4 text-sm leading-7 sm:p-6;
+    @apply border-ink overflow-x-auto border p-4 text-sm leading-7 sm:p-6;
   }
   .prose blockquote {
-    @apply border-l-4 border-ink pl-5;
+    @apply border-ink border-l-4 pl-5;
   }
   .prose table {
-    @apply block max-w-full overflow-x-auto border-collapse text-base;
+    @apply block max-w-full border-collapse overflow-x-auto text-base;
   }
   .prose :is(th, td) {
-    @apply border border-ink px-4 py-3 text-left;
+    @apply border-ink border px-4 py-3 text-left;
   }
   .prose th {
     @apply bg-neutral-100 font-bold;
   }
   .prose hr {
-    @apply my-10 border-ink;
+    @apply border-ink my-10;
   }
 }

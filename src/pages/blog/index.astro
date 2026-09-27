@@ -11,8 +11,8 @@ const posts = await getBlogPosts();
   <Meta title="Blog" slot="meta" />
   <Fragment slot="content">
     <div>
-      <div class="mb-8 border-b-2 border-ink pb-6">
-        <p class="mb-3 font-mono text-xs uppercase tracking-widest">
+      <div class="border-ink mb-8 border-b-2 pb-6">
+        <p class="mb-3 font-mono text-xs tracking-widest uppercase">
           The archive · {posts.length} posts
         </p>
         <h1>All posts</h1>

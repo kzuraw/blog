@@ -9,10 +9,10 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<ul role="list" class="border border-ink">
+<ul role="list" class="border-ink border">
   {
     posts.map((post) => (
-      <li class="border-b border-ink last:border-b-0">
+      <li class="border-ink border-b last:border-b-0">
         <a
           href={post.urlPath}
           class="group flex items-center justify-between gap-5 px-5 py-6 no-underline hover:bg-neutral-100 focus-visible:relative focus-visible:z-10 focus-visible:outline-offset-0 sm:px-6"

@@ -10,6 +10,7 @@
     "create-post": "node scripts/create-post.ts",
     "dev": "astro dev",
     "lint": "astro check",
+    "format": "prettier . --write --ignore-unknown",
     "preview": "astro preview",
     "start": "astro dev"
   },
@@ -27,6 +28,7 @@
     "@types/node": "25.9.8",
     "prettier": "3.9.8",
     "prettier-plugin-astro": "1.0.1",
+    "prettier-plugin-tailwindcss": "0.8.1",
     "tailwindcss": "^4.3.3",
     "typescript": "6.0.3"
   },
