@@ -14,7 +14,9 @@ const links = [
 <!doctype html>
 <html lang="en">
   <head>
-    <slot name="meta"><Meta title="Krzysztof Żuraw" /></slot>
+    <slot name="meta">
+      <Meta title="Krzysztof Żuraw" />
+    </slot>
     <link
       rel="preload"
       href={nebulaSansRegular}
@@ -27,34 +29,33 @@ const links = [
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-10 focus:bg-white focus:p-3"
-      >Skip to content</a
     >
+      Skip to content
+    </a>
     <div class="mx-auto flex min-h-screen max-w-4xl flex-col px-5 sm:px-10">
       <header class="border-ink border-b-2 py-6 sm:py-10">
         <nav
           aria-label="Main navigation"
           class="flex flex-wrap items-center justify-between gap-5"
         >
-          <a href="/" class="text-xl font-bold no-underline sm:text-2xl"
-            >Krzysztof Żuraw</a
-          >
+          <a href="/" class="text-xl font-bold no-underline sm:text-2xl">
+            Krzysztof Żuraw
+          </a>
           <ul role="list" class="border-ink flex border">
-            {
-              links.map(({ href, label, active }) => (
-                <li class="border-ink border-r last:border-r-0">
-                  <a
-                    href={href}
-                    aria-current={active ? "page" : undefined}
-                    class:list={[
-                      "hover:bg-ink block px-4 py-2 text-base no-underline hover:text-white focus-visible:relative focus-visible:z-10",
-                      active && "bg-ink text-white",
-                    ]}
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))
-            }
+            {links.map(({ href, label, active }) => (
+              <li class="border-ink border-r last:border-r-0">
+                <a
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  class:list={[
+                    "hover:bg-ink block px-4 py-2 text-base no-underline hover:text-white focus-visible:relative focus-visible:z-10",
+                    active && "bg-ink text-white",
+                  ]}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>
@@ -65,13 +66,11 @@ const links = [
       >
         <slot name="content" />
       </main>
-      <footer
-        class="border-ink flex flex-wrap justify-between gap-4 border-t py-6 font-mono text-xs sm:text-sm"
-      >
+      <footer class="border-ink flex flex-wrap justify-between gap-4 border-t py-6 font-mono text-xs sm:text-sm">
         <span>Krzysztof Żuraw</span>
-        <a href="/rss.xml" class="underline"
-          >Subscribe via RSS <span aria-hidden="true">↗</span></a
-        >
+        <a href="/rss.xml" class="underline">
+          Subscribe via RSS <span aria-hidden="true">↗</span>
+        </a>
       </footer>
     </div>
   </body>

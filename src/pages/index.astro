@@ -11,7 +11,9 @@ const mostRecentPosts = await getBlogPosts(3);
       <p class="mb-4 font-mono text-xs tracking-widest uppercase">
         Software engineering & everyday notes
       </p>
-      <h1 id="intro-heading" class="mb-6">Hey! I'm Krzysztof.</h1>
+      <h1 id="intro-heading" class="mb-6">
+        Hey! I'm Krzysztof.
+      </h1>
       <p class="max-w-2xl text-xl leading-relaxed sm:text-2xl">
         I'm a fullstack software engineer working with TypeScript and Python.
         This is where I share what I learn along the way.
@@ -20,20 +22,20 @@ const mostRecentPosts = await getBlogPosts(3);
         When I'm not coding, you'll find me brewing coffee with a V60.
       </p>
       <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3">
-        <a href="https://github.com/kzuraw" class="underline"
-          >GitHub <span aria-hidden="true">↗</span></a
-        >
-        <a href="https://www.linkedin.com/in/kzuraw" class="underline"
-          >LinkedIn <span aria-hidden="true">↗</span></a
-        >
+        <a href="https://github.com/kzuraw" class="underline">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/kzuraw" class="underline">
+          LinkedIn <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </section>
     <section aria-labelledby="recent-heading">
       <div class="mb-5 flex flex-wrap items-baseline justify-between gap-3">
         <h2 id="recent-heading">Recent posts</h2>
-        <a href="/blog" class="text-base underline"
-          >View all posts <span aria-hidden="true">→</span></a
-        >
+        <a href="/blog" class="text-base underline">
+          View all posts <span aria-hidden="true">→</span>
+        </a>
       </div>
       <PostList posts={mostRecentPosts} />
     </section>

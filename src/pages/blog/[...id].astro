@@ -26,16 +26,12 @@ const { Content } = await render(post);
     slot="meta"
   />
   <Fragment slot="content">
-    <a href="/blog" class="mb-8 inline-block text-base underline"
-      ><span aria-hidden="true">←</span> All posts</a
-    >
+    <a href="/blog" class="mb-8 inline-block text-base underline">
+      <span aria-hidden="true">←</span> All posts
+    </a>
     <header class="border-ink mb-8 border-b-2 pb-8">
-      <h1 class="mb-5 wrap-break-word">
-        {post.data.title}
-      </h1>
-      <div>
-        {post.data.pubDate && <PostDate date={post.data.pubDate} />}
-      </div>
+      <h1 class="mb-5 wrap-break-word">{post.data.title}</h1>
+      <div>{post.data.pubDate && <PostDate date={post.data.pubDate} />}</div>
     </header>
     <Article>
       <Content />

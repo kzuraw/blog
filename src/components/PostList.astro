@@ -10,24 +10,22 @@ const { posts } = Astro.props;
 ---
 
 <ul role="list" class="border-ink border">
-  {
-    posts.map((post) => (
-      <li class="border-ink border-b last:border-b-0">
-        <a
-          href={post.urlPath}
-          class="group flex items-center justify-between gap-5 px-5 py-6 no-underline hover:bg-neutral-100 focus-visible:relative focus-visible:z-10 focus-visible:outline-offset-0 sm:px-6"
-        >
-          <div class="min-w-0">
-            {post.data.pubDate && <PostDate date={post.data.pubDate} />}
-            <span class="mt-2 block text-xl leading-snug wrap-break-word group-hover:underline sm:text-2xl">
-              {post.data.title}
-            </span>
-          </div>
-          <span aria-hidden="true" class="shrink-0 text-3xl font-normal">
-            ↗
+  {posts.map((post) => (
+    <li class="border-ink border-b last:border-b-0">
+      <a
+        href={post.urlPath}
+        class="group flex items-center justify-between gap-5 px-5 py-6 no-underline hover:bg-neutral-100 focus-visible:relative focus-visible:z-10 focus-visible:outline-offset-0 sm:px-6"
+      >
+        <div class="min-w-0">
+          {post.data.pubDate && <PostDate date={post.data.pubDate} />}
+          <span class="mt-2 block text-xl leading-snug wrap-break-word group-hover:underline sm:text-2xl">
+            {post.data.title}
           </span>
-        </a>
-      </li>
-    ))
-  }
+        </div>
+        <span aria-hidden="true" class="shrink-0 text-3xl font-normal">
+          ↗
+        </span>
+      </a>
+    </li>
+  ))}
 </ul>

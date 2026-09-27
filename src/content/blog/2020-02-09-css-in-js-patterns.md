@@ -103,9 +103,9 @@ Using `css` prop we will have:
 </div>
 ```
 
-Benefit of it is that there is no need to add `shouldForwardProp` - you can take all data directly from context of component. As you can see in above example the first argument to `css` is a `theme` object that can contains [emotion-theming]() values.
+Benefit of it is that there is no need to add `shouldForwardProp` - you can take all data directly from context of component. As you can see in above example the first argument to `css` is a `theme` object that can contains [emotion-theming](<>) values.
 
-If you are using TypeScript you will need to type `theme` via `css={(theme: Theme) => ({})}` instead of having typed `styled` if you are using this [guide]().
+If you are using TypeScript you will need to type `theme` via `css={(theme: Theme) => ({})}` instead of having typed `styled` if you are using this [guide](<>).
 
 I haven't used this pattern in production code but I see some drawback from beginning - what if you start using `css` prop too much? Then you will end up with a long HTML tags that have both logic of rendering and styling. One of solution for that problem is to extract styles to its own variable as is done with `p` tag in example above.
 
