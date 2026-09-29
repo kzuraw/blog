@@ -12,6 +12,7 @@
     "diagrams": "node scripts/render-diagrams.ts",
     "lint": "astro check",
     "format": "prettier . --write --ignore-unknown",
+    "prepare": "husky",
     "preview": "astro preview",
     "start": "astro dev"
   },
@@ -27,6 +28,8 @@
     "@astrojs/check": "0.9.10",
     "@tailwindcss/vite": "4.3.3",
     "@types/node": "25.9.8",
+    "husky": "9.1.7",
+    "lint-staged": "17.5.1",
     "prettier": "3.9.8",
     "prettier-plugin-astro": "1.0.1",
     "prettier-plugin-tailwindcss": "0.8.1",
