@@ -1,0 +1,55 @@
+---
+import Meta from "@/components/Meta.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <Meta
+    title="Colophon"
+    description="How this blog is built, from its framework to its typography."
+    slot="meta"
+  />
+  <Fragment slot="content">
+    <div class="border-ink mb-8 border-b-2 pb-6">
+      <p class="mb-3 font-mono text-xs tracking-widest uppercase">
+        Behind the blog
+      </p>
+      <h1>Colophon</h1>
+    </div>
+    <div class="prose flow max-w-2xl">
+      <p>
+        This is my corner of the web for software engineering and everyday
+        notes. Here's what goes into making it.
+      </p>
+      <h2>Built with</h2>
+      <p>
+        The blog is built with <a href="https://astro.build/">Astro</a> and
+        styled with <a href="https://tailwindcss.com/">Tailwind CSS</a>. Posts
+        are written in Markdown, and pages are generated as static HTML.
+      </p>
+      <h2>Typography</h2>
+      <p>
+        Text and headings use{" "}
+        <a href="https://fontsource.org/fonts/nebula-sans">Nebula Sans</a>.
+        Code, dates, and small labels use{" "}
+        <a href="https://fontsource.org/fonts/source-code-pro">
+          Source Code Pro
+        </a>
+        . Both fonts are self-hosted through{" "}
+        <a href="https://fontsource.org/">Fontsource</a>.
+      </p>
+      <h2>Diagrams and code</h2>
+      <p>
+        Diagrams are drawn with <a href="https://d2lang.com/">D2</a> and
+        rendered as SVGs. Code snippets are highlighted with{" "}
+        <a href="https://shiki.style/">Shiki</a> using the GitHub Light theme.
+      </p>
+      <h2>Follow along</h2>
+      <p>
+        You can <a href="/rss.xml">subscribe via RSS</a> to keep up with new
+        posts. The source code is available on{" "}
+        <a href="https://github.com/kzuraw/blog">GitHub</a>.
+      </p>
+    </div>
+  </Fragment>
+</Layout>
