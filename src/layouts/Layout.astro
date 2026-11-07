@@ -68,9 +68,23 @@ const links = [
       </main>
       <footer class="border-ink flex flex-wrap justify-between gap-4 border-t py-6 font-mono text-xs sm:text-sm">
         <span>Krzysztof Żuraw</span>
-        <a href="/rss.xml" class="underline">
-          Subscribe via RSS <span aria-hidden="true">↗</span>
-        </a>
+        <nav
+          aria-label="Footer navigation"
+          class="flex flex-wrap gap-x-6 gap-y-3"
+        >
+          <a
+            href="/colophon"
+            aria-current={
+              pathname.replace(/\/$/, "") === "/colophon" ? "page" : undefined
+            }
+            class="underline"
+          >
+            Colophon
+          </a>
+          <a href="/rss.xml" class="underline">
+            Subscribe via RSS <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
       </footer>
     </div>
   </body>
