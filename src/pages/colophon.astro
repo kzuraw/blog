@@ -1,0 +1,60 @@
+---
+import Meta from "@/components/Meta.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <Meta
+    title="Colophon · Krzysztof Żuraw"
+    description="How this blog is made: the tools, typography, and source code behind kzuraw.com."
+    slot="meta"
+  />
+  <Fragment slot="content">
+    <article aria-labelledby="colophon-heading">
+      <header class="border-ink mb-8 border-b-2 pb-6">
+        <p class="mb-3 font-mono text-xs tracking-widest uppercase">
+          About this site
+        </p>
+        <h1 id="colophon-heading">Colophon</h1>
+      </header>
+      <div class="prose flow max-w-2xl">
+        <p>
+          A few notes on the tools and choices behind this little corner of the
+          web.
+        </p>
+
+        <h2>Built with</h2>
+        <p>
+          This blog is built with <a href="https://astro.build/">Astro</a>, with
+          posts written in Markdown and generated as static pages. Styling comes
+          from <a href="https://tailwindcss.com/">Tailwind CSS</a>, with syntax
+          highlighting by <a href="https://shiki.style/">Shiki</a>. Diagrams are
+          drawn with <a href="https://d2lang.com/">D2</a> and included as SVGs.
+        </p>
+
+        <h2>Typography & design</h2>
+        <p>
+          Text and headings are set in{" "}
+          <a href="https://fontsource.org/fonts/nebula-sans">Nebula Sans</a>.
+          Code and dates use{" "}
+          <a href="https://fontsource.org/fonts/source-code-pro">
+            Source Code Pro
+          </a>
+          . Both fonts are self-hosted through{" "}
+          <a href="https://fontsource.org/">Fontsource</a>.
+        </p>
+        <p>
+          The design keeps things simple: dark ink on a white background, clear
+          typography, and plenty of room for the words.
+        </p>
+
+        <h2>Source & subscriptions</h2>
+        <p>
+          The code and posts live on{" "}
+          <a href="https://github.com/kzuraw/blog">GitHub</a>. To follow new
+          posts, subscribe to the <a href="/rss.xml">RSS feed</a>.
+        </p>
+      </div>
+    </article>
+  </Fragment>
+</Layout>
